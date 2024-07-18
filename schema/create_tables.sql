@@ -1,4 +1,28 @@
 --============================================================
+--table : employees 
+-- description : stores all employees 
+--============================================================
+
+create table Employees(
+EmployeeID int PRIMARY KEY,
+FirstName varchar(20) Not NULL check(length(FirstName)>2),
+LastName VARCHAR(20) NOT Null check(length(LastName)>2),
+DepartmentID int(3),
+HireDate date not null,
+position VARCHAR(20),
+salary DECIMAL(6,2) not null check(salary>1000)
+);
+--============================================================ 
+-- table :departments
+-- description : stores all department
+--============================================================
+
+create table Departments(
+DepartmentID int primary KEY,
+DepartmentName VARCHAR(30) NOT NULL,
+location VARCHAR(50) UNIQUE
+);
+--============================================================
 -- table projects  
 -- description: stores project information
 --============================================================
