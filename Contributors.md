@@ -21,4 +21,3 @@ We would like to express our gratitude to Hazem Omar for his guidance and suppor
 
 ---
 
-Please fill in the specific contributions for each team member as needed.
