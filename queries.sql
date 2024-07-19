@@ -1,5 +1,4 @@
-USE project;
- 
+Use companydb; 
 --##################################
 --#           Question 1           #
 --##################################
@@ -44,7 +43,6 @@ INNER JOIN orderdetails o on o.ProductID = p.ProductID GROUP BY p.ProductID ;
 --#           Question 6           #
 --##################################
  
-
 DELIMITER $$
 CREATE PROCEDURE AvgSal_PerDe()
 BEGIN
@@ -54,18 +52,19 @@ BEGIN
   from employees as e
   INNER JOIN departments on e.DepartmentID =  departments.`DepartmentID`;  
 
-  Select Max(salary) from employees;
+  Select Max(salary)  from employees;
 END;
 $$
  
 DELIMITER ;
+
  
 
 CALL AvgSal_PerDe();
 -------------------------------------------
 SELECT e.EmployeeID, CONCAT(e.FirstName, ' ', e.LastName) AS Name, d.DepartmentName FROM employees e
 INNER JOIN departments d ON d.DepartmentID = e.DepartmentID
-WHERE e.Salary > (SELECT AvgSal from temp1 t WHERE t.DepartmentID = d.DepartmentID); 
+WHERE e.Salary > (SELECT AvgSal from @temp t WHERE t.DepartmentID = d.DepartmentID); --error 
  
 SELECT *, (SELECT AVG(Salary) from employees) AS AVGSal from employees;
 
@@ -85,7 +84,7 @@ DELIMITER ;
  
 SELECT *, CheckSal(Salary) from employees;
  
-DELETE FROM departments WHERE DepartmentName = "IT";
+DELETE FROM departments WHERE DepartmentName = "IT";--error 
 SELECT * from employees WHERE DepartmentID IS NULL;
 
 

@@ -1,3 +1,12 @@
+--ALTER TABLE employees
+
+Alter table employees
+ADD Constraint fk_department
+FOREIGN KEY employees(departmentID) REFERENCES departments(DepartmentID)
+on update cascade on delete set NULL
+-- Update departments SET `DepartmentID` = 3 where `DepartmentID` =1;
+
+
 -- ALTER TABLE assignments
 ALTER TABLE assignments
 ADD CONSTRAINT FK_ProjectID
@@ -11,7 +20,6 @@ MODIFY AssignmentDate DATE NOT NULL;
 ALTER TABLE orders
 ADD CONSTRAINT FK_CustomerID
 FOREIGN KEY (customerID) REFERENCES customers (customerID) ON UPDATE CASCADE;
-
 ALTER TABLE orders
 MODIFY orderDate DATE NOT NULL,
 MODIFY TotalAmount INT NOT NULL;
@@ -47,12 +55,8 @@ MODIFY Price INT NOT NULL,
 ADD CONSTRAINT chk_price
 CHECK (Price > 0),
 MODIFY StockQuantity INT NOT NULL;
---ALTER TABLE employees
-Alter table employees
-ADD Constraint fk_department
-FOREIGN KEY employees(departmentID) REFERENCES departments(DepartmentID)
-on update cascade
-Update departments SET `DepartmentID` = 3 where `DepartmentID` =1
+
+
 
 --- MAKING A TRIGGER FOR THE DATE 
 

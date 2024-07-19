@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS CompanyDB;
+
+CREATE DATABASE IF NOT EXISTS CompanyDB;
+
+USE CompanyDB;
+
 --============================================================
 --table : employees 
 -- description : stores all employees 
@@ -57,7 +63,7 @@ CREATE TABLE assignments (
 CREATE TABLE customers (
     customerID INT PRIMARY KEY ,
     customerName VARCHAR(20),
-    contanctNumber INT,
+    contactNumber INT,
     Email VARCHAR(20),
     Address VARCHAR(50))
 

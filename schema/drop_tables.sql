@@ -1,3 +1,13 @@
+
+-- Drop tables (Order matters if there are dependencies between tables)
+DROP TABLE IF EXISTS orderdetails;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS assignments;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS employees;
+
 -- DROP TABLE assignments
 ALTER TABLE assignments
 DROP CONSTRAINT IF EXISTS FK_ProjectID,
@@ -21,11 +31,3 @@ DROP CONSTRAINT IF EXISTS chck_budget;
 ALTER TABLE products
 DROP CONSTRAINT IF EXISTS chk_price;
 
--- Drop tables (Order matters if there are dependencies between tables)
-DROP TABLE IF EXISTS orderdetails;
-DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS assignments;
-DROP TABLE IF EXISTS projects;
-DROP TABLE IF EXISTS products;
-DROP TABLE IF EXISTS customers;
-DROP TABLE IF EXISTS employees;
